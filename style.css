@@ -1,10 +1,27 @@
 @import url('https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap');
 
 .section-hello {
-    background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
+    background-color: #FFF455;
 }
 
-#hi-message {
+#hello-text,
+#i-am-text,
+#software-text {
     font-family: 'Mulish';
+    line-height: normal;
+}
+
+#hello-text {
+    font-size: 4rem;
+    color: #A87676;
+}
+
+#i-am-text {
     font-size: 6rem;
+    color: #219C90;
+}
+
+#software-text {
+    font-size: 2.4rem;
+    color: #FF5580;
 }

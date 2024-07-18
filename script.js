@@ -1,67 +1,41 @@
-var len_counter = 0;
-var hi_text = 'Hi, I am Pranav.';
-var speed = 90;
+var len_counter = 0, speed = 90;
+var hello_text = "Hello,", i_am_text = "I am Pranav,", software_text = "A Software Developer.";
+var hello_text_length = hello_text.length, i_am_text_length = i_am_text.length, software_text_length = software_text.length;
+var hello_div = document.getElementById("hello-text"), i_am_div = document.getElementById("i-am-text"), software_div = document.getElementById("software-text");
 
-function showhi() {
-    if(len_counter<2) {
-        switch (len_counter) {
-            case 0:
-                document.getElementById("hi-message").innerHTML += "<b>H</b>";
-                break;
-
-            case 1:
-                document.getElementById("hi-message").innerHTML += "<b>i</b>";
-                break;
-
-            default:
-                break;
+function showtext() {
+    if (len_counter < hello_text_length) {
+        if (len_counter == 0) {
+            hello_div.innerHTML = hello_text[len_counter];
+        }
+        else {
+            hello_div.innerHTML += hello_text[len_counter];
         }
 
-        len_counter++;
-        setTimeout(showhi, speed);
+        setTimeout(showtext, speed);
     }
 
-    else if (len_counter < 9) {
-        document.getElementById("hi-message").innerHTML += hi_text.charAt(len_counter);
-        len_counter++;
-        setTimeout(showhi, speed);
-    }
-
-    else if (len_counter < hi_text.length) {
-        switch (len_counter) {
-            case 9:
-                document.getElementById("hi-message").innerHTML += "<b>P</b>";
-                break;
-
-            case 10:
-                document.getElementById("hi-message").innerHTML += "<b>r</b>";
-                break;
-
-            case 11:
-                document.getElementById("hi-message").innerHTML += "<b>a</b>";
-                break;
-
-            case 12:
-                document.getElementById("hi-message").innerHTML += "<b>n</b>";
-                break;
-
-            case 13:
-                document.getElementById("hi-message").innerHTML += "<b>a</b>";
-                break;
-
-            case 14:
-                document.getElementById("hi-message").innerHTML += "<b>v</b>";
-                break;
-
-            case 15:
-                document.getElementById("hi-message").innerHTML += ".";
-                break;
-
-            default:
-                break;
+    else if (len_counter < (hello_text_length + i_am_text_length)) {
+        if (len_counter == hello_text_length) {
+            i_am_div.innerHTML = i_am_text[len_counter - hello_text_length];
+        }
+        else {
+            i_am_div.innerHTML += i_am_text[len_counter - hello_text_length];
         }
 
-        len_counter++;
-        setTimeout(showhi, speed);
+        setTimeout(showtext, speed);
     }
+
+    else if (len_counter < (hello_text_length + i_am_text_length + software_text_length)) {
+        if (len_counter == (hello_text_length + i_am_text_length)) {
+            software_div.innerHTML = software_text[len_counter - hello_text_length - i_am_text_length];
+        }
+        else {
+            software_div.innerHTML += software_text[len_counter - hello_text_length - i_am_text_length];
+        }
+
+        setTimeout(showtext, speed);
+    }
+
+    len_counter++;
 }
